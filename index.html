@@ -10,6 +10,22 @@
 html{scroll-behavior:smooth}
 body{background:#0b4c66}
 
+/* Discount Bar */
+.discount{
+background:#ff3b3b;
+color:white;
+text-align:center;
+padding:12px;
+font-weight:bold;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:1}
+50%{opacity:.6}
+100%{opacity:1}
+}
+
 header{background:white;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
 nav a{margin-left:20px;text-decoration:none;color:#0b4c66;font-weight:bold}
 
@@ -19,6 +35,17 @@ nav a{margin-left:20px;text-decoration:none;color:#0b4c66;font-weight:bold}
 
 .btn{margin-top:20px;padding:14px 36px;background:linear-gradient(135deg,#18b6a4,#0fb9b1);color:white;border-radius:30px;text-decoration:none;font-size:18px;font-weight:bold;transition:.3s;display:inline-block}
 .btn:hover{transform:scale(1.1)}
+
+.discount-box{
+margin-top:20px;
+background:#ffd000;
+color:#000;
+padding:15px;
+border-radius:10px;
+font-size:22px;
+font-weight:bold;
+display:inline-block;
+}
 
 section{padding:70px 40px;background:white}
 .title{text-align:center;color:#0b4c66;margin-bottom:40px}
@@ -64,6 +91,10 @@ background:rgba(0,0,0,.8);display:none;justify-content:center;align-items:center
 
 <body>
 
+<div class="discount">
+🔥 50% DISCOUNT FOR FIRST 10 STUDENTS — HURRY UP & AVAIL THIS OPPORTUNITY!
+</div>
+
 <header>
 <h2 style="color:#0b4c66">GradeCore Tutors</h2>
 <nav>
@@ -78,7 +109,13 @@ background:rgba(0,0,0,.8);display:none;justify-content:center;align-items:center
 <div class="hero">
 <h1>GradeCore Tutors</h1>
 <p>Personalized Learning | Real Results</p>
-<a href="#contact" class="btn">Get Started</a>
+
+<div class="discount-box">
+🎉 50% OFF – First 10 Students Only!
+</div>
+
+<br>
+<a href="#contact" class="btn">Claim Discount Now</a>
 </div>
 
 <section id="about" class="fade">
@@ -123,7 +160,8 @@ Professional tutoring from primary to higher levels with personalized teaching.
 <div class="testimonial">⭐⭐⭐⭐<p>Excellent exam guidance.</p><b>Ibrahim</b></div> 
 <div class="testimonial">⭐⭐⭐⭐⭐<p>Much more confident now.</p><b>Humna</b></div> 
 <div class="testimonial">⭐⭐⭐<p>My ma'am is very experienced.</p><b>Rayan</b></div> 
-<div class="testimonial">⭐⭐⭐⭐⭐<p>Give practice questions for hometask which are helpful in exam.</p><b>Fatima</b></div>
+<div class="testimonial">⭐⭐⭐⭐⭐<p>Practice questions help a lot.</p><b>Fatima</b></div>
+
 </div>
 </section>
 
@@ -152,7 +190,6 @@ Professional tutoring from primary to higher levels with personalized teaching.
 <div class="lightbox" onclick="this.style.display='none'"><img></div>
 
 <script>
-// fade on scroll
 const fades=document.querySelectorAll('.fade');
 window.addEventListener('scroll',()=>{
 fades.forEach(f=>{
@@ -160,7 +197,6 @@ if(f.getBoundingClientRect().top<window.innerHeight-100)f.classList.add('show');
 });
 });
 
-// stats
 let a=0,b=0,c=0;
 setInterval(()=>{
 if(a<120)s1.innerHTML=++a;
@@ -168,15 +204,12 @@ if(b<8)s2.innerHTML=++b;
 if(c<95)s3.innerHTML=++c;
 },40);
 
-// gallery lightbox
 document.querySelectorAll('.gallery img').forEach(img=>{
 img.onclick=()=>{document.querySelector('.lightbox img').src=img.src;document.querySelector('.lightbox').style.display='flex';}
 });
 
-// back to top
 window.onscroll=()=>topBtn.style.display=window.scrollY>300?'block':'none';
 
-// testimonial rotation
 setInterval(()=>{
 const t=document.getElementById('testimonials');
 t.appendChild(t.firstElementChild);
